@@ -271,7 +271,7 @@ export default function PaymentConfirmationCard(props) {
     };
     message_id.forEach((id) => {
       let es = new window.EventSourcePolyfill(
-        `${process.env.REACT_APP_BASE_URL}clientApis/events?messageId=${id}`,
+        `${process.env.REACT_APP_BASE_URL}/clientApis/events?messageId=${id}`,
         header
       );
       es.addEventListener("on_confirm", (e) => {
@@ -328,7 +328,7 @@ export default function PaymentConfirmationCard(props) {
       const search_context = JSON.parse(getValueFromCookie("search_context"));
       const data = await cancellablePromise(
         postCall(
-          "clientApis/v2/confirm_order",
+          "/clientApis/v2/confirm_order",
           items.map((item, index) => ({
             // pass the map of parent order id and transaction id
             context: {

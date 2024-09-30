@@ -166,7 +166,7 @@ const StepPaymentContent = ({
     };
     message_id.forEach((id) => {
       let es = new window.EventSourcePolyfill(
-        `${process.env.REACT_APP_BASE_URL}clientApis/events/v2?messageId=${id}`,
+        `${process.env.REACT_APP_BASE_URL}/clientApis/events/v2?messageId=${id}`,
         header
       );
       es.addEventListener("on_init", (e) => {

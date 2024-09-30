@@ -846,7 +846,7 @@ const Checkout = () => {
     };
     message_id.forEach((id) => {
       let es = new window.EventSourcePolyfill(
-        `${process.env.REACT_APP_BASE_URL}clientApis/events/v2?messageId=${id}`,
+        `${process.env.REACT_APP_BASE_URL}/clientApis/events/v2?messageId=${id}`,
         header
       );
       es.addEventListener("on_confirm", (e) => {
@@ -938,7 +938,7 @@ const Checkout = () => {
         },
       ];
       const data = await cancellablePromise(
-        postCall("clientApis/v2/confirm_order", queryParams)
+        postCall("/clientApis/v2/confirm_order", queryParams)
       );
       //Error handling workflow eg, NACK
       // const isNACK = data.find(

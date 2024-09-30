@@ -13,6 +13,7 @@ function unAuthorizedResponse() {
 
 export function getCall(url, params = null) {
   const token = Cookies.get("token");
+  // url = url.includes("http://localhost") ?  url : `http://localhost:3000${url}`
   return new Promise(async (resolve, reject) => {
     try {
       const response = await axios.get(url, {
@@ -30,6 +31,7 @@ export function getCall(url, params = null) {
 
 export function postCall(url, params) {
   const token = Cookies.get("token");
+  // url = url.includes("http://localhost") ?  url : `http://localhost:3000${url}`
   return new Promise(async (resolve, reject) => {
     try {
       const response = await axios.post(url, params, {
@@ -46,6 +48,7 @@ export function postCall(url, params) {
 
 export function putCall(url, params) {
   const token = Cookies.get("token");
+  // url = url.includes("http://localhost") ?  url : `http://localhost:3000${url}`
   return new Promise(async (resolve, reject) => {
     try {
       const response = await axios.put(url, params, {
@@ -62,6 +65,7 @@ export function putCall(url, params) {
 
 export function deleteCall(url) {
   const token = Cookies.get("token");
+  // url = url.includes("http://localhost") ?  url : `http://localhost:3000${url}`
   return new Promise(async (resolve, reject) => {
     try {
       const response = await axios.delete(url, {
